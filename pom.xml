@@ -6,6 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.9</version>
+		<packaging>jar</packaging>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.chatboat</groupId>
@@ -92,6 +93,12 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			 <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
 		</plugins>
 	</build>
 
