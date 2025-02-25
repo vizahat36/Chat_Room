@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .register-container {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      padding: 30px;
+    }
+    .register-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .btn-register {
+      width: 100%;
+      background: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+      transition: background 0.2s ease;
+    }
+    .btn-register:hover {
+      background: #0056b3;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="username" class="form-control" placeholder="Set Username" required>
+      <input type="password" id="password" class="form-control" placeholder="Set Password" required>
+      <button type="button" class="btn-register" onclick="registerUser()">Register</button>
+    </form>
+
+    <!-- Add the link here -->
+    <div class="login-link">
+      Already have an account? 
+      <a href="/login" class="link-primary">Log In</a>
+    </div>
+  </div>
+
+  <script>
+    async function registerUser() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const response = await fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      const message = await response.text();
+      alert(message);
+
+      if (response.ok) {
+        window.location.href = '/login';
+      }
+    }
+  </script>
+</body>
+</html>
