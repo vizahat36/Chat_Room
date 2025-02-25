@@ -1,0 +1,28 @@
+# Stage 1: Use Maven to build your Spring Boot app
+FROM maven:3.8.6-openjdk-23 AS builder
+
+# 1) Create and switch to /app folder inside the container
+WORKDIR /app
+
+# 2) Copy your pom.xml into /app
+COPY pom.xml .
+
+# 3) Copy your source code from local "src" folder to /app/src
+COPY src ./src
+
+# 4) Run Maven to compile and package your app
+RUN mvn clean package -DskipTests
+
+
+# Stage 2: Use a smaller JDK image to run the built JAR
+FROM openjdk:23-jdk-alpine
+WORKDIR /app
+
+# Copy the JAR from the builder stage into the new image
+COPY --from=builder /app/target/*.jar app.jar
+
+# Expose port 8080 so you can access the app
+EXPOSE 8080
+
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "app.jar"]
