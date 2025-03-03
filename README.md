@@ -43,8 +43,8 @@ This real-time chat application is designed to provide seamless and instant comm
 5. **Logout:** Users can securely log out, redirecting them to the home page.  
 
 ## **Check the Website:**
--🌐 Live Application: (https://chat-v1-0.onrender.com/)
--🐋 Docker Hub Image: [vizahat/chat_room:v1.0]
+1. 🌐 Live Application: (https://chat-v1-0.onrender.com/)
+2. 🐋 Docker Hub Image: [vizahat/chat_room:v1.0]
 
 
 Website images :-
