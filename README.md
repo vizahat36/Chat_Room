@@ -42,4 +42,20 @@ This real-time chat application is designed to provide seamless and instant comm
 4. **Responsive Design:** The chat interface adjusts perfectly across devices like phones, tablets, and laptops.  
 5. **Logout:** Users can securely log out, redirecting them to the home page.  
 
----
+## **Check the Website:**
+🌐 Live Application: (https://chat-v1-0.onrender.com/)
+🐋 Docker Hub Image: [vizahat/chat_room:v1.0]
+
+
+Website images :-
+
+![home page](https://github.com/user-attachments/assets/e5dd360b-d68c-4985-945f-bce0adca2e26)
+![registe page](https://github.com/user-attachments/assets/0e59d238-3713-40c4-9655-8026c83fc5fa)
+![login page](https://github.com/user-attachments/assets/da87ffc4-206d-4162-99bb-cb38f926703d)
+![chat page](https://github.com/user-attachments/assets/9139fd4b-91dd-43ab-bec3-5fe2db0e2fe5)
+![result page](https://github.com/user-attachments/assets/04b419c8-5ab9-43a6-97f3-60611d582195)
+
+
+
+
+
