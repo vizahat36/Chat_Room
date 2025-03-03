@@ -1,0 +1,200 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            text-align: center;
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .btn {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-register {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-register:hover {
+            background-color: #45a049;
+        }
+        .btn-login {
+            background-color: #008CBA;
+            color: white;
+        }
+        .btn-login:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <nav>Chat Room</nav>
+    <div class="container">
+        <h1>Welcome to Real-Time Chat Application</h1>
+        <p>Connect with your friends and colleagues in real-time! Register if you're new, or log in if you already have an account.</p>
+        <button class="btn btn-register" onclick="window.location.href='register'">Register</button>
+        <button class="btn btn-login" onclick="window.location.href='login'">Login</button>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application - Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+            color: white;
+        }
+        nav {
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            padding: 15px 50px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .container {
+            text-align: center;
+            padding: 100px 20px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #7f5af0, #ff8906);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .container p {
+            font-size: 20px;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        .hidden-points {
+            display: none;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-register {
+            background: #7f5af0;
+            color: white;
+        }
+        .btn-register:hover {
+            background: #693baf;
+            transform: scale(1.05);
+        }
+        .btn-login {
+            background: #ff8906;
+            color: white;
+        }
+        .btn-login:hover {
+            background: #d66f05;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 36px;
+            }
+            .container p {
+                font-size: 18px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Chat Room</a>
+    </nav>
+    <div class="container">
+        <h1>Real-Time Chat Application </h1>
+        <p>Connect with your friends and colleagues in real-time! Register to start chatting and enjoy seamless, secure conversations.</p>
+        <ul class="hidden-points">
+            <li>Real-time message updates</li>
+            <li>Secure and encrypted conversations</li>
+            <li>Cross-device compatibility</li>
+            <li>User-friendly interface</li>
+        </ul>
+        <div class="btn-container">
+            <button class="btn btn-register" onclick="window.location.href='register'">Register</button>
+            <button class="btn btn-login" onclick="window.location.href='login'">Login</button>
+        </div>
+    </div>
+</body>
+</html>

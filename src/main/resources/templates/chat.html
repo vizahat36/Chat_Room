@@ -7,7 +7,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      background: linear-gradient(135deg, #1f1f2e, #12121f);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,19 +15,20 @@
       margin: 0;
       font-family: Arial, sans-serif;
     }
+
     .chat-container {
-      background: #ffffff;
+      background: #0d0d14;
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       width: 90%;
       max-width: 600px;
       display: flex;
       flex-direction: column;
       height: 80vh;
-      position: relative;
     }
+
     .chat-header {
-      background: #007bff;
+      background: #7f3df8;
       color: #ffffff;
       padding: 15px;
       font-size: 1.5rem;
@@ -36,6 +37,7 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .chat-box {
       flex: 1;
       overflow-y: auto;
@@ -43,51 +45,103 @@
       display: flex;
       flex-direction: column;
     }
-    .chat-box div {
+
+    .chat-box .sent {
       padding: 10px 15px;
       margin-bottom: 10px;
       border-radius: 20px;
-      background: #e9ecef;
-      align-self: flex-start;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .chat-box .sent {
-      background: #007bff;
+      background: #a855f7;
       color: #ffffff;
       align-self: flex-end;
+      animation: popIn 0.5s ease-in-out;
+      max-width: 70%;
+      word-wrap: break-word;
     }
+
+    .chat-box .received {
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      background: #272736;
+      color: #ffffff;
+      align-self: flex-start;
+      animation: popIn 0.5s ease-in-out;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
     .chat-input {
       display: flex;
       gap: 8px;
       padding: 15px;
-      background: #f1f1f1;
-      border-top: 1px solid #ccc;
+      background: #1c1c2b;
+      border-top: 1px solid #3f3f5f;
     }
+
     .chat-input input[type="text"] {
       flex: 1;
       padding: 10px;
-      border: 1px solid #ced4da;
+      border: 1px solid #3f3f5f;
       border-radius: 20px;
+      background: #12121f;
+      color: #ffffff;
     }
+
+    .chat-input input[type="text"]:focus {
+      box-shadow: 0 0 10px #a855f7;
+      outline: none;
+    }
+
     .chat-input button {
-      background: #007bff;
+      background: #a855f7;
       color: #ffffff;
       border: none;
       padding: 10px 20px;
       border-radius: 20px;
       transition: background 0.2s ease;
     }
+
     .chat-input button:hover {
-      background: #0056b3;
+      background: #7f3df8;
     }
-    @keyframes fadeIn {
+
+    @keyframes popIn {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: scale(0.9);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        align-items: flex-start;
+      }
+      .chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+      }
+
+      .chat-header {
+        font-size: 1.2rem;
+        padding: 10px;
+      }
+
+      .chat-input {
+        flex-direction: column;
+      }
+
+      .chat-input input[type="text"] {
+        padding: 8px;
+        margin-bottom: 8px;
+      }
+
+      .chat-input button {
+        padding: 8px 15px;
       }
     }
   </style>
@@ -100,7 +154,7 @@
     </div>
     <div id="chat" class="chat-box"></div>
     <div class="chat-input">
-      <input type="text" id="senderInput" placeholder="Your name...">
+      <input type="text" id="senderInput" placeholder="Your name..." disabled>
       <input type="text" id="messageInput" placeholder="Type a message...">
       <button id="sendMessage">Send</button>
     </div>
@@ -129,8 +183,9 @@
     function showMessage(message) {
       const chat = document.getElementById('chat');
       const messageElement = document.createElement('div');
+      const storedUsername = localStorage.getItem('loggedInUser');
       messageElement.textContent = `${message.sender}: ${message.content}`;
-      messageElement.classList.add('sent');
+      messageElement.classList.add(message.sender === storedUsername ? 'sent' : 'received');
       chat.appendChild(messageElement);
       chat.scrollTop = chat.scrollHeight;
     }
@@ -147,7 +202,6 @@
 
     document.getElementById('sendMessage').onclick = sendMessage;
 
-    // Retrieve stored username on page load and establish WebSocket connection
     window.onload = function() {
       const storedUsername = localStorage.getItem('loggedInUser');
       if (storedUsername) {
@@ -156,10 +210,9 @@
       connect();
     };
 
-    // Logout functionality: clear localStorage and redirect to login page
     document.getElementById('logoutBtn').onclick = function() {
       localStorage.removeItem('loggedInUser');
-      window.location.href = '/login';
+      window.location.href = '/';
     };
   </script>
 </body>
