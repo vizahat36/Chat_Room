@@ -7,7 +7,7 @@ This real-time chat application is designed to provide seamless and instant comm
 - **Frontend:**  
   - **HTML:** Structure and layout of the web pages.  
   - **CSS:** Styling and design for an attractive and responsive interface.  
-  - **JavaScript:** Client-side scripting for interactivity and dynamic updates.  
+
   - **Bootstrap:** Ensures a sleek, mobile-friendly, and consistent design across devices.  
 
 - **Backend:**  
